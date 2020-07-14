@@ -1,0 +1,13 @@
+[alias]
+glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
+[log]
+abbrevCommit=true
+
+[diff]
+tool = vscode
+[difftool "vscode"]
+cmd = code --wait --diff $LOCAL $REMOTE
+
+[rebase]
+autosquash = true
