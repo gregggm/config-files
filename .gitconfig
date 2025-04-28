@@ -1,32 +1,59 @@
 [alias]
-glog = log --oneline --graph --decorate --all
-plog = log --pretty=format:'%C(yellow)%h %Cblue%>(12)%ar %Cgreen%<(7)%aN %Creset%s'
-amend = commit --amend -a -n -C HEAD
+		glog = log --oneline --graph --decorate --all
+		plog = log --pretty=format:'%C(yellow)%h %Cblue%>(12)%ar %Cgreen%<(7)%aN %Creset%s'
+		amend = commit --amend -a -n -C HEAD
 
 [log]
-abbrevCommit=true
+		abbrevCommit=true
+
+[user]
+		name = Greg Marlow
+		email = greg.marlow@kraken.tech
 
 [rebase]
-	autosquash = true
+        autosquash = true
+        autostash = true
 
 [merge]
-conflictstyle = diff3
+		conflictstyle = zdiff3
 
 [credential]
-helper = osxkeychain
+		helper = osxkeychain
 
 [core]
-	excludesfile = /Users/gregmarlow/.gitignore_global
+        excludesfile = /Users/greg.marlow/.gitignore_global
+        fsmonitor = 1
+        untrackedCache = true
 [pull]
-	ff = only
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /private/var/folders/mg/gwchfc0j65348_2lhbgd42kw0000gn/T/AppTranslocation/766F47CF-C8BF-46B7-9A82-7181FA482CAF/d/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+        ff = only
+        rebase = true
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true
+        clean = git-lfs clean -- %f
+[maintenance]
+        repo = /Users/greg.marlow/Workspace/kraken-core
+[branch]
+        sort = -committerdate
+[advice]
+        macheteEditorSelection = false
+[url "git@github.com:"]
+        insteadOf = https://github.com/
+[scalar]
+        repo = /Users/greg.marlow/Workspace/kraken-core
+[rerere]
+        enabled = true
+        autoupdate = true
+[init]
+        defaultBranch = main
+[checkout]
+        workers = 0
+[diff]
+        algorithm = histogram
+[push]
+        autoSetupRemote = true
+[commit]
+        verbose = true
+[machete "github"]
+        prDescriptionIntroStyle = full-no-branches

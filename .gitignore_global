@@ -2,3 +2,5 @@
 .direnv/
 .envrc
 .ignore
+.justfile
+.DS_Store
